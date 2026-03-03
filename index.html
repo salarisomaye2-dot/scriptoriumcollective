@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scriptorium Collective Landing Page</title>
+  <meta name="description" content="Scriptorium Collective offers bespoke calligraphy, customized stationery, event signage, illuminated manuscripts, and calligraphy workshops in New York.">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&family=Lora:ital@0;1&display=swap');
+
+    /* Custom properties for theme */
+    :root {
+      --primary-50: #fef0f7;
+      --primary-100: #fde2ef;
+      --primary-200: #fabbdb;
+      --primary-300: #f78bc1;
+      --primary-400: #f352a3;
+      --primary-500: #e81c7e;
+      --primary-600: #cd0d64;
+      
+      --background-base: #1a1a2e;
+      --background-surface: #16213e;
+      
+      --accent-neon: oklch(70% 0.25 330 / 1); /* Bright neon pink */
+      --accent-glow: oklch(50% 0.2 330 / 0.5); /* Semi-transparent glow */
+
+      --text-color-primary: var(--primary-50);
+      --text-color-secondary: var(--primary-100);
+      
+      --border-radius-default: 4px;
+      --section-spacing: 3rem;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lora', serif;
+      color: var(--text-color-primary);
+      background-color: var(--background-base);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800; /* As per typography setting */
+      color: var(--text-color-primary);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: var(--primary-300);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--accent-neon);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* General Section Styling */
+    section {
+      padding: var(--section-spacing) 0;
+      position: relative;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      line-height: 1.2;
+    }
+
+    .section-subheading {
+      text-align: center;
+      max-width: 800px;
+      margin: -1.5rem auto 3rem auto;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-color-secondary);
+    }
+
+    /* Utility classes for aesthetics */
+    .bg-surface {
+      background-color: var(--background-surface);
+    }
+
+    .bg-base {
+      background-color: var(--background-base);
+    }
+
+    .text-primary-color {
+      color: var(--text-color-primary);
+    }
+
+    .text-secondary-color {
+      color: var(--text-color-secondary);
+    }
+
+    .text-accent-neon {
+      color: var(--accent-neon);
+    }
+
+    /* CTA Button Style */
+    .btn-solid-primary {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      background-color: var(--primary-500);
+      color: var(--background-base);
+      border: none;
+      border-radius: var(--border-radius-default);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-solid-primary:hover,
+    .btn-solid-primary:focus {
+      background-color: var(--primary-600);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--accent-glow);
+      outline: none;
+    }
+
+    /* Responsive Grid - Basic Flexbox for mobile first */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .grid.two-col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid.three-col {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .grid.lg-two-col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid.lg-three-col {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid.lg-four-col {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* Hexagon icon container - For workshops and future icons */
+    .icon-hexagon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--background-surface);
+      position: relative;
+      margin: 0 auto 1.5rem auto;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--primary-300);
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    /* Image hover effects */
+    .img-hover-zoom {
+      overflow: hidden;
+      border-radius: var(--border-radius-default);
+    }
+
+    .img-hover-zoom img {
+      transition: transform 0.5s ease-in-out;
+      display: block; /* Remove extra space below image */
+      width: 100%;
+      height: auto;
+    }
+
+    .img-hover-zoom:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Card specific styles with border-left-accent and bg-shift */
+    .card-border-left-accent {
+      background-color: var(--background-surface);
+      border-radius: var(--border-radius-default);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      position: relative;
+      overflow: hidden; /* For hidden ::before pseudo-element */
+    }
+
+    .card-border-left-accent::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 8px; /* Thickness of the accent border */
+      background-color: var(--primary-500);
+      border-radius: var(--border-radius-default) 0 0 var(--border-radius-default);
+      transition: width 0.3s ease, background-color 0.3s ease;
+    }
+
+    .card-border-left-accent.bg-shift:hover {
+      background-color: var(--background-base); /* Shift background slightly */
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px var(--accent-glow);
+    }
+    
+    .card-border-left-accent.bg-shift:hover::before {
+      background-color: var(--accent-neon); /* Glow neon on hover */
+      width: 16px; /* Make it thicker */
+    }
+
+    /* Cookie Consent Banner */
+    #cookie-consent-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--background-surface);
+        color: var(--text-color-primary);
+        padding: 1rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        z-index: 1000;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    }
+    #cookie-consent-banner p {
+        margin: 0;
+        flex-grow: 1;
+        font-size: 0.9rem;
+    }
+    #cookie-consent-banner button {
+        background-color: var(--primary-500);
+        color: var(--background-base);
+        border: none;
+        padding: 0.7rem 1.5rem;
+        border-radius: var(--border-radius-default);
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+    #cookie-consent-banner button:hover {
+        background-color: var(--primary-600);
+    }
+    
+    /* Accessibility: Respects user motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .img-hover-zoom img,
+      .card-border-left-accent,
+      .card-border-left-accent::before,
+      .btn-solid-primary {
+        transition-duration: 0.001ms !important;
+        animation-duration: 0.001ms !important;
+      }
+      .img-hover-zoom:hover img {
+        transform: none;
+      }
+      .btn-solid-primary:hover {
+        transform: none;
+      }
+    }
+  </style>
+
+  <style>
+    /* Shadow DOM Styles for Scriptorium Nav (scriptorium-nav) */
+    scriptorium-nav::part(nav-container) {
+      background-color: var(--background-base);
+      color: var(--text-color-primary);
+      padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    scriptorium-nav::part(brand-logo) {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--primary-400);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    scriptorium-nav::part(brand-logo):hover {
+      color: var(--accent-neon);
+    }
+
+    scriptorium-nav::part(nav-links) {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    scriptorium-nav::part(nav-item) {
+      display: inline-block;
+    }
+
+    scriptorium-nav::part(nav-link) {
+      color: var(--text-color-secondary);
+      text-decoration: none;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+
+    scriptorium-nav::part(nav-link)::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-neon);
+      transition: width 0.3s ease-in-out;
+    }
+
+    scriptorium-nav::part(nav-link):hover::after,
+    scriptorium-nav::part(nav-link):focus::after {
+      width: 100%;
+    }
+
+    scriptorium-nav::part(nav-link):hover {
+      color: var(--text-color-primary);
+    }
+
+    scriptorium-nav::part(menu-toggle) {
+      display: none; /* Hidden on desktop */
+      background: none;
+      border: none;
+      color: var(--text-color-primary);
+      font-size: 1.8rem;
+      cursor: pointer;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      scriptorium-nav::part(nav-container) {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        padding: 0.8rem 1rem;
+      }
+
+      scriptorium-nav::part(brand-logo) {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.8rem;
+      }
+
+      scriptorium-nav::part(nav-links) {
+        display: none; /* Hide by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+
+      scriptorium-nav::part(nav-links).open {
+        display: flex; /* Show when open */
+      }
+
+      scriptorium-nav::part(nav-link) {
+        padding: 0.8rem 0;
+      }
+
+      scriptorium-nav::part(menu-toggle) {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 0.8rem;
+      }
+    }
+  </style>
+
+  <style>
+    /* Shadow DOM Styles for Scriptorium Form (scriptorium-form) */
+    scriptorium-form::part(form-container) {
+      background-color: var(--background-surface);
+      padding: 2.5rem;
+      border-radius: var(--border-radius-default);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    scriptorium-form::part(form-group) {
+        margin-bottom: 1.5rem;
+    }
+
+    scriptorium-form::part(input-label) {
+      display: block;
+      margin-bottom: 0.6rem;
+      color: var(--text-color-primary);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    scriptorium-form::part(input-field),
+    scriptorium-form::part(select-field),
+    scriptorium-form::part(textarea-field) {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--primary-500); /* Sharp 4px input fields */
+      border-radius: var(--border-radius-default);
+      background-color: var(--background-base);
+      color: var(--text-color-primary);
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+
+    scriptorium-form::part(input-field):focus,
+    scriptorium-form::part(select-field):focus,
+    scriptorium-form::part(textarea-field):focus {
+      border-color: var(--accent-neon);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+      outline: none;
+    }
+
+    scriptorium-form::part(textarea-field) {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    scriptorium-form::part(select-field) {
+        appearance: none; /* Remove default arrow */
+        -webkit-appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="%23f78bc1" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 0.8rem center;
+        padding-right: 2.5rem; /* Make space for the custom arrow */
+    }
+
+    scriptorium-form::part(submit-btn) {
+      display: block;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      background-color: var(--primary-500);
+      color: var(--background-base);
+      border: none;
+      border-radius: var(--border-radius-default);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    scriptorium-form::part(submit-btn):hover,
+    scriptorium-form::part(submit-btn):focus {
+      background-color: var(--primary-600);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--accent-glow);
+      outline: none;
+    }
+  </style>
+
+  <script type="module">
+    // Minimal inline JavaScript for Shadow DOM components.
+    // For Scriptorium Nav
+    class ScriptoriumNav extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.template = document.createElement('template');
+        this.template.innerHTML = `
+          <style>
+            .nav-container {
+              background-color: var(--background-base);
+              color: var(--text-color-primary);
+              padding: 1rem 0;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              position: sticky;
+              top: 0;
+              z-index: 100;
+              box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+            }
+
+            .nav-content {
+              display: flex;
+              width: 100%;
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 1rem;
+              justify-content: space-between;
+              align-items: center;
+              flex-wrap: wrap; /* Allow wrapping for mobile */
+            }
+
+            .brand-logo {
+              font-family: 'Raleway', sans-serif;
+              font-weight: 800;
+              font-size: 1.8rem;
+              color: var(--primary-400);
+              text-decoration: none;
+              transition: color 0.3s ease;
+            }
+
+            .brand-logo:hover {
+              color: var(--accent-neon);
+            }
+
+            .nav-group {
+              display: none; /* Hidden by default for mobile */
+              list-style: none;
+              margin: 0;
+              padding: 0;
+              display: flex;
+              gap: 1.5rem;
+              flex-grow: 1; /* Allow content to push apart */
+              justify-content: flex-start; /* Default for left group */
+            }
+
+            .nav-group.right {
+                justify-content: flex-end; /* Align right group to end */
+            }
+
+            .nav-item {
+              display: inline-block;
+            }
+
+            .nav-link {
+              color: var(--text-color-secondary);
+              text-decoration: none;
+              font-family: 'Raleway', sans-serif;
+              font-weight: 600;
+              font-size: 1.05rem;
+              position: relative;
+              padding: 0.5rem 0;
+              transition: color 0.3s ease;
+            }
+
+            .nav-link::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 0;
+              height: 2px;
+              background-color: var(--accent-neon);
+              transition: width 0.3s ease-in-out;
+            }
+
+            .nav-link:hover::after,
+            .nav-link:focus::after {
+              width: 100%;
+            }
+
+            .nav-link:hover {
+              color: var(--text-color-primary);
+            }
+
+            .menu-toggle {
+              display: none; /* Hidden on desktop */
+              background: none;
+              border: none;
+              color: var(--primary-300);
+              font-size: 1.8rem;
+              cursor: pointer;
+              outline: none;
+            }
+
+            /* Mobile-specific styles for navigation */
+            @media (max-width: 768px) {
+                .nav-content {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .nav-group {
+                    display: none; /* Hide by default on mobile */
+                    flex-direction: column;
+                    width: 100%;
+                    gap: 0;
+                    text-align: center;
+                    justify-content: center;
+                    margin-top: 1rem;
+                }
+                .nav-group.open {
+                    display: flex; /* Show when open */
+                }
+                .nav-item {
+                    width: 100%;
+                    padding: 0.5rem 0;
+                }
+                .nav-link {
+                    display: block; /* Make links full width */
+                    padding: 0.8rem 0;
+                }
+                
+                .brand-logo {
+                    margin-bottom: 0; /* Align with toggle */
+                }
+
+                .menu-toggle {
+                    display: block;
+                    position: absolute;
+                    right: 1.2rem;
+                    top: 1.2rem; /* Adjust based on actual header height */
+                }
+                .nav-group.left, .nav-group.right {
+                    flex-grow: 0; /* Reset flex grow on mobile */
+                }
+            }
+          </style>
+          <div class="nav-container" part="nav-container">
+            <div class="nav-content">
+              <a href="#" class="brand-logo" part="brand-logo"><slot name="logo-text"></slot></a>
+              <button class="menu-toggle" aria-label="Toggle navigation" part="menu-toggle">&#9776;</button>
+              <ul class="nav-group left" part="nav-links nav-links-left">
+                <slot name="links-left"></slot>
+              </ul>
+              <ul class="nav-group right" part="nav-links nav-links-right">
+                <slot name="links-right"></slot>
+              </ul>
+            </div>
+          </div>
+        `;
+      }
+
+      connectedCallback() {
+        this.shadowRoot.appendChild(this.template.content.cloneNode(true));
+        const menuToggle = this.shadowRoot.querySelector('.menu-toggle');
+        const navGroups = this.shadowRoot.querySelectorAll('.nav-group');
+
+        menuToggle.addEventListener('click', () => {
+          navGroups.forEach(group => group.classList.toggle('open'));
+        });
+
+        // Close menu when a link is clicked (for single-page navigation)
+        this.shadowRoot.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navGroups.forEach(group => group.classList.remove('open'));
+            });
+        });
+      }
+    }
+    customElements.define('scriptorium-nav', ScriptoriumNav);
+
+    // For Scriptorium Form
+    class ScriptoriumForm extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.template = document.createElement('template');
+        this.template.innerHTML = `
+          <style>
+            .form-container {
+              background-color: var(--background-surface);
+              padding: 2.5rem;
+              border-radius: var(--border-radius-default);
+              box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            }
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+            .input-label {
+                display: block;
+                margin-bottom: 0.6rem;
+                color: var(--text-color-primary);
+                font-family: 'Raleway', sans-serif;
+                font-weight: 600;
+                font-size: 0.95rem;
+            }
+            .input-field,
+            .select-field,
+            .textarea-field {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                border: 1px solid var(--primary-500);
+                border-radius: var(--border-radius-default);
+                background-color: var(--background-base);
+                color: var(--text-color-primary);
+                font-family: 'Lora', serif;
+                font-size: 1rem;
+                transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                box-sizing: border-box;
+            }
+            .input-field:focus,
+            .select-field:focus,
+            .textarea-field:focus {
+                border-color: var(--accent-neon);
+                box-shadow: 0 0 0 3px var(--accent-glow);
+                outline: none;
+            }
+            .textarea-field {
+                min-height: 120px;
+                resize: vertical;
+            }
+            .select-field {
+                appearance: none;
+                -webkit-appearance: none;
+                background-image: url('data:image/svg+xml;utf8,<svg fill="%23f78bc1" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+                background-repeat: no-repeat;
+                background-position: right 0.8rem center;
+                padding-right: 2.5rem;
+            }
+            .submit-btn {
+                display: block;
+                width: 100%;
+                padding: 1rem 1.5rem;
+                background-color: var(--primary-500);
+                color: var(--background-base);
+                border: none;
+                border-radius: var(--border-radius-default);
+                font-family: 'Raleway', sans-serif;
+                font-weight: 600;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            }
+            .submit-btn:hover,
+            .submit-btn:focus {
+                background-color: var(--primary-600);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px var(--accent-glow);
+                outline: none;
+            }
+          </style>
+          <form class="form-container" part="form-container">
+            <slot></slot> 
+          </form>
+        `;
+      }
+
+      connectedCallback() {
+        this.shadowRoot.appendChild(this.template.content.cloneNode(true));
+      }
+    }
+    customElements.define('scriptorium-form', ScriptoriumForm);
+  </script>
+</head>
+<body>
+  <header>
+    
+    <scriptorium-nav>
+        <span slot="logo-text">Scriptorium Collective</span>
+        <li slot="links-left" part="nav-item">
+            <a href="#services" part="nav-link">Services</a>
+        </li>
+        <li slot="links-left" part="nav-item">
+            <a href="#workshops" part="nav-link">Workshops</a>
+        </li>
+        <li slot="links-right" part="nav-item">
+            <a href="#gallery" part="nav-link">Gallery</a>
+        </li>
+        <li slot="links-right" part="nav-item">
+            <a href="#contact" part="nav-link">Inquire</a>
+        </li>
+    </scriptorium-nav>
+  </header>
+<main>
+    
+    <section id="hero" style="background: linear-gradient(135deg, var(--primary-500) 0%, var(--background-surface) 100%); padding: 6rem 0;">
+      <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 3rem;">
+        <div style="flex-basis: 50%;">
+          <h1 style="font-size: clamp(2.8rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; color: var(--background-base);">Elevate Your Story with Scriptorium Collective</h1>
+          <p style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); line-height: 1.5; color: var(--background-base); max-width: 700px; margin: 0 auto 2.5rem auto;">Bespoke calligraphy, customized stationery, and illuminated manuscripts crafted in the heart of New York.</p>
+          <a href="#contact" class="btn-solid-primary" style="background-color: var(--background-base); color: var(--primary-500); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">Commission an Artwork</a>
+        </div>
+        <div style="flex-basis: 50%;">
+          <div class="img-hover-zoom" style="max-width: 1024px; border-radius: var(--border-radius-default);">
+            <img src="images/hero-illuminated-manuscript.jpeg" alt="Artist creating an illuminated manuscript at a drafting table" width="1024" height="768" style="width: 100%; height: auto; display: block; border-radius: var(--border-radius-default);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="about" class="bg-base">
+      <div class="container grid lg-two-col" style="align-items: center;">
+        <div style="padding-right: 1rem;">
+          <h2 class="section-heading" style="text-align: left; margin-bottom: 2rem;">The Art of the Pen</h2>
+          <p class="text-secondary-color" style="font-size: 1.1rem;">At Scriptorium Collective, we believe that every stroke holds a story. Nestled in our Pacific Street studio in Brooklyn, our artisanal approach merges time-honored script techniques with contemporary design aesthetics. We cherish the quiet discipline of the hand-crafted, bringing soulful precision to every project.</p>
+          <p class="text-secondary-color" style="font-size: 1.1rem; margin-top: 1rem;">Our illuminated manuscripts, imbued with the glow of 24k gold, and striking custom event signage are meticulously tailored to create truly immersive experiences. We strive to bring the tactile beauty of ink and precious metals into an increasingly digital age, offering a tangible connection to artistry and elegance.</p>
+        </div>
+        <div style="position: relative; padding: 2rem; display: flex; justify-content: center; align-items: center;">
+          <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, var(--accent-glow) 0%, transparent 70%); border-radius: 50%; opacity: 0.6;"></div>
+          <div class="img-hover-zoom" style="max-width: 512px; border-radius: 50%; z-index: 1;">
+            <img src="images/calligraphy-nib-ink-macro.jpeg" alt="Macro shot of a calligraphy pen dipping into dark pink ink" width="512" height="512" style="width: 100%; height: auto; display: block; border-radius: 50%;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="services" class="bg-surface">
+      <div class="container">
+        <h2 class="section-heading">Our Artisanal Services</h2>
+        <div class="grid" style="gap: 1.5rem;">
+          
+          <div class="grid lg-two-col" style="gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="card-border-left-accent bg-shift" style="border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
+              <h3 style="font-size: 1.8rem; margin-bottom: 0.8rem;">Illuminated Manuscripts</h3>
+              <p class="text-secondary-color" style="flex-grow: 1;">Modern interpretations of classical manuscripts, featuring meticulous 24k gold leafing and bespoke gouache illustrations that breathe life into your most cherished texts.</p>
+              <div class="img-hover-zoom" style="border-radius: 12px; margin-top: 1.5rem;">
+                <img src="images/service-illuminated-manuscript-gold.jpeg" alt="Gold leaf applied to a parchment manuscript" width="640" height="640" style="width: 100%; height: auto; display: block; border-radius: 12px;">
+              </div>
+            </div>
+            <div class="card-border-left-accent bg-shift" style="border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
+              <h3 style="font-size: 1.8rem; margin-bottom: 0.8rem;">Event Signage</h3>
+              <p class="text-secondary-color" style="flex-grow: 1;">Striking, hand-painted acrylic and mirror signage for weddings, discerning galas, and corporate events. Each piece is a statement, guiding guests with unparalleled elegance.</p>
+              <div class="img-hover-zoom" style="border-radius: 12px; margin-top: 1.5rem;">
+                <img src="images/service-event-signage-neon-wedding.jpeg" alt="Dark acrylic wedding welcome sign with neon pink lettering" width="640" height="640" style="width: 100%; height: auto; display: block; border-radius: 12px;">
+              </div>
+            </div>
+          </div>
+          
+          
+          <div class="grid three-col lg-three-col" style="gap: 1.5rem;">
+            <div class="card-border-left-accent bg-shift" style="padding: 1.5rem; text-align: center;">
+              <h4 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--primary-300);">Bespoke Calligraphy</h4>
+              <p class="text-secondary-color">Customized envelopes, heartfelt vows, and delicately penned place cards that leave a lasting impression.</p>
+            </div>
+            <div class="card-border-left-accent bg-shift" style="padding: 1.5rem; text-align: center;">
+              <h4 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--primary-300);">Custom Stationery</h4>
+              <p class="text-secondary-color">Wax seal infused, letterpress-quality suite designs; embodying sophistication for all your special announcements.</p>
+            </div>
+            <div class="card-border-left-accent bg-shift" style="padding: 1.5rem; text-align: center;">
+              <h4 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--primary-300);">Original Art Pieces</h4>
+              <p class="text-secondary-color">Commissioned framed quotes and poetic visual artworks, designed to become cherished heirlooms.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="workshops" class="bg-base">
+      <div class="container">
+        <h2 class="section-heading">Master the Script: Calligraphy Workshops</h2>
+        <p class="section-subheading">Join our comprehensive classes, strictly limited to 8 seats per session, held in our inspiring New York studio to ensure personalized attention.</p>
+        <div class="grid three-col lg-three-col">
+          <div class="card-border-left-accent bg-shift" style="padding: 2rem; text-align: center;">
+            <div class="icon-hexagon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24l-6.36-6.36a3.5 3.5 0 0 0-4.95 0L3.5 10.5a7 7 0 0 0 10 9.9c0-.6 0-1.2-.2-1.8l-1.3-1.3a3.5 3.5 0 0 0-4.95-4.95L10.5 3.5a7 7 0 0 0 9.9 10c.6 0 1.2 0 1.8-.2l1.3-1.3a3.5 3.5 0 0 0-4.95-4.95L10.5 3.5z"/></svg>
+            </div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.8rem;">Introduction to Pointed Pen</h3>
+            <p class="text-secondary-color" style="font-weight: 600;">$125</p>
+            <p class="text-secondary-color">A 3-hour foundational course covering nib pressure, basic strokes, and alphabet mapping for beginner enthusiasts. All high-quality materials are provided, setting you on your calligraphic journey.</p>
+          </div>
+          <div class="card-border-left-accent bg-shift" style="padding: 2rem; text-align: center;">
+            <div class="icon-hexagon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            </div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.8rem;">Copperplate Mastery</h3>
+            <p class="text-secondary-color" style="font-weight: 600;">$250</p>
+            <p class="text-secondary-color">An intensive 2-day weekend workshop focusing on the elegant flourishing of Copperplate script structure and traditional ink formulation. Elevate your skills with advanced techniques.</p>
+          </div>
+          <div class="card-border-left-accent bg-shift" style="padding: 2rem; text-align: center;">
+            <div class="icon-hexagon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.8rem;">Gold-Leaf Illumination</h3>
+            <p class="text-secondary-color" style="font-weight: 600;">$380</p>
+            <p class="text-secondary-color">An advanced masterclass dedicating itself to the ancient art of gilding techniques using classical breathing tubes and natural gum ammoniac. Discover the magic of gold.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="gallery" class="bg-surface">
+      <div class="container">
+        <h2 class="section-heading">Our Portfolio of Elegance</h2>
+        <div class="grid two-col lg-three-col">
+          <div class="img-hover-zoom card-border-left-accent bg-shift">
+            <img src="images/gallery-dark-stationery-suite.jpeg" alt="Dark charcoal wedding invitation suite with metallic pink calligraphy" width="512" height="768" style="width: 100%; height: auto; display: block; border-radius: var(--border-radius-default);">
+          </div>
+          <div class="img-hover-zoom card-border-left-accent bg-shift">
+            <img src="images/gallery-wax-seal-detail.jpeg" alt="Close-up of a deep magenta wax seal over velvet ribbon" width="512" height="512" style="width: 100%; height: auto; display: block; border-radius: var(--border-radius-default);">
+          </div>
+          <div class="img-hover-zoom card-border-left-accent bg-shift">
+            <img src="images/gallery-framed-art-piece.jpeg" alt="Framed original calligraphy art piece hanging on a dark wall" width="768" height="512" style="width: 100%; height: auto; display: block; border-radius: var(--border-radius-default);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="contact" class="bg-base">
+      <div class="container grid lg-two-col" style="align-items: flex-start;">
+        <div style="padding-right: 2rem;">
+          <h2 class="section-heading" style="text-align: left; margin-bottom: 2rem;">Commission Scriptorium Collective</h2>
+          <p class="text-secondary-color">Ready to collaborate on a unique piece or discuss your event needs? Fill out the form below, or reach out to us directly.</p>
+          <div style="margin-top: 2rem;">
+            <h3 style="font-size: 1.4rem; color: var(--primary-300);">Connect with Us</h3>
+            <p class="text-secondary-color"><strong>Address:</strong> Pacific Street, New York, New York, 11233, USA</p>
+            <p class="text-secondary-color"><strong>Phone:</strong> <a href="tel:+19834373694" class="text-accent-neon">+1 (983) 437-3694</a></p>
+            <p class="text-secondary-color"><strong>Email:</strong> <a href="mailto:info@<?php echo $_SERVER['HTTP_HOST']; ?>" class="text-accent-neon">info@<?php echo $_SERVER['HTTP_HOST']; ?></a></p>
+          </div>
+          <div style="margin-top: 2rem;">
+            <h3 style="font-size: 1.4rem; color: var(--primary-300);">Our Location</h3>
+            <div style="margin-top: 1rem; border-radius: var(--border-radius-default); overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);">
+              <iframe
+                width="100%"
+                height="300"
+                frameborder="0" style="border:0;"
+                src="https://www.google.com/maps?q=New+York,+USA&z=12&output=embed"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+        <div>
+          <scriptorium-form>
+             <div class="form-group">
+                <label for="name" class="input-label" part="input-label">Name</label>
+                <input type="text" id="name" name="name" class="input-field" part="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="email" class="input-label" part="input-label">Email Address</label>
+                <input type="email" id="email" name="email" class="input-field" part="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="service_type" class="input-label" part="input-label">Service of Interest</label>
+                <select id="service_type" name="service_type" class="select-field" part="select-field">
+                    <option value="Bespoke Calligraphy">Bespoke Calligraphy</option>
+                    <option value="Custom Stationery">Custom Stationery</option>
+                    <option value="Event Signage">Event Signage</option>
+                    <option value="Illuminated Manuscripts">Illuminated Manuscripts</option>
+                    <option value="Workshops">Workshops</option>
+                    <option value="Original Art">Original Art</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="project_details" class="input-label" part="input-label">Project Details & Timeline</label>
+                <textarea id="project_details" name="project_details" class="textarea-field" part="textarea-field" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" part="submit-btn">Request Consultation</button>
+          </scriptorium-form>
+        </div>
+      </div>
+    </section>
+  </main>
+<footer>
+    <div class="bg-surface" style="padding: 2.5rem 0; text-align: center; border-top: 2px solid var(--accent-neon); margin-top: 2rem;">
+      <div class="container">
+        <p class="text-secondary-color" style="margin-bottom: 0.5rem; font-size: 0.9rem;">
+          &copy; 2024 Scriptorium Collective. All rights reserved.
+        </p>
+        <p class="text-secondary-color" style="margin-bottom: 1rem; font-size: 0.9rem;">
+          Handcrafted with precision in New York, USA.
+        </p>
+        <div style="font-size: 0.85rem;">
+          <a href="./privacy.html" style="color: var(--primary-200); margin: 0 0.5rem;">Privacy Policy</a>
+          <span style="color: var(--primary-200);">|</span>
+          <a href="./tos.html" style="color: var(--primary-200); margin: 0 0.5rem;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+  <div id="cookie-consent-banner" style="display: none;">
+      <p>We use cookies to enhance your experience and analyze our traffic. By clicking "Accept", you consent to our use of cookies.</p>
+      <button id="accept-cookies">Accept</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cookieBanner = document.getElementById('cookie-consent-banner');
+        const acceptButton = document.getElementById('accept-cookies');
+        const cookieName = 'consent_scriptorium_cookies'; // Randomly generated prefix for specificity
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i=0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+        }
+
+        if (!getCookie(cookieName)) {
+            cookieBanner.style.display = 'flex';
+        }
+
+        acceptButton.addEventListener('click', () => {
+            setCookie(cookieName, 'accepted', 365); // Store for 1 year
+            cookieBanner.style.display = 'none';
+        });
+    });
+  </script>
+</body>
+</html>
